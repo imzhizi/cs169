@@ -1,0 +1,13 @@
+%h1 Create New Movie
+
+/ movies_path + form 确定了
+/ 重点在于 = text_field 的 :movie, :title 导致可以直接从 form 转成对象
+
+= form_tag movies_path do
+  = label :movie, :title, 'Title'
+  = text_field :movie, :title
+  = label :movie, :rating, 'Rating'
+  = select :movie, :rating, %w(G PG PG-13 R NC-17)
+  = label :movie, :release_date, 'Released On'
+  = date_select :movie, :release_date
+  = submit_tag 'Save Changes'

@@ -1,0 +1,24 @@
+<h2>Guess the word</h2>
+<p style="color: #888888">You can guess <strong>a letter</strong> each turn and You will lose if you give 7 wrong guesses.</p>
+
+<% if flash[:message] %>
+  <p>
+    <span class="error"><%= flash[:message] %></span>
+  </p>
+<% end %>
+
+<p>
+  Wrong Guesses:
+  <span class="guesses"><%= @game.wrong_guesses %></span>
+</p>
+<p>
+  Word so far:
+  <span class="word"><%= @game.word_with_guesses %></span>
+</p>
+
+<form action="/guess" method="post">
+  <input type="text" size="4" name="guess" autocomplete="off"/>
+  <input type="submit" value="Guess!"/>
+</form>
+
+<%= erb :new %>
